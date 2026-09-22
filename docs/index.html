@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#11233a" />
+  <meta name="description" content="以时间线回顾2019年底至2023年新冠疫情的中国与全球关键事件。" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2311233a'/%3E%3Cpath d='M20 18h24v7H28v8h13v7H28v10h-8V18Z' fill='%23ef6a57'/%3E%3C/svg%3E" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <title>疫情事件回顾｜2019—2023</title>
+  <style>
+    :root {
+      --ink: #11233a;
+      --ink-2: #31445a;
+      --muted: #718093;
+      --paper: #f4f1eb;
+      --card: #fbfaf7;
+      --line: #d8d6d1;
+      --red: #ef6a57;
+      --red-dark: #b94437;
+      --blue: #1f668f;
+      --sand: #e8e0d3;
+      --shadow: 0 16px 45px rgba(17, 35, 58, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: "Noto Sans SC", system-ui, sans-serif; font-size: 16px; line-height: 1.72; }
+    a { color: inherit; }
+    button { font: inherit; }
+    .skip-link { position: fixed; left: 16px; top: -60px; z-index: 50; background: var(--red); color: #fff; padding: 10px 16px; border-radius: 0 0 8px 8px; transition: top .2s ease; }
+    .skip-link:focus { top: 0; }
+    .site-header { background: var(--ink); color: #fff; padding: 18px 5vw; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .masthead { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .mark { width: 28px; height: 28px; border: 2px solid var(--red); display: grid; place-items: center; color: var(--red); font-family: Georgia, serif; font-weight: 700; font-size: 17px; }
+    .masthead span { font-size: 14px; letter-spacing: .08em; color: #d7e0e9; }
+    .header-note { color: #aab9c7; font-size: 13px; letter-spacing: .06em; }
+    .hero { max-width: 1240px; margin: 0 auto; padding: 88px 5vw 66px; display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 72px; align-items: end; }
+    .eyebrow { margin: 0 0 16px; color: var(--red-dark); font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3 { margin: 0; font-family: "Libre Bodoni", Georgia, serif; font-weight: 600; letter-spacing: -.035em; line-height: 1.12; }
+    h1 { max-width: 800px; font-size: clamp(42px, 7vw, 86px); }
+    .hero-lede { max-width: 680px; color: var(--ink-2); font-size: 18px; margin: 24px 0 0; }
+    .hero-meta { border-top: 1px solid var(--ink); padding-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .metric strong { display: block; font-family: "Libre Bodoni", Georgia, serif; font-size: 31px; font-weight: 600; line-height: 1; }
+    .metric span { display: block; color: var(--muted); font-size: 12px; margin-top: 7px; }
+    .control-bar { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20; background: rgba(244,241,235,.94); backdrop-filter: blur(12px); }
+    .control-inner { max-width: 1240px; margin: 0 auto; padding: 13px 5vw; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .control-label { color: var(--muted); font-size: 13px; white-space: nowrap; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-end; }
+    .filter { cursor: pointer; border: 1px solid var(--line); color: var(--ink-2); background: transparent; padding: 7px 13px; min-height: 40px; border-radius: 999px; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+    .filter:hover, .filter:focus-visible { border-color: var(--ink); }
+    .filter[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+    .filter:focus-visible, a:focus-visible, button:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+    main { max-width: 1240px; margin: 0 auto; padding: 62px 5vw 90px; }
+    .timeline-intro { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 44px; }
+    .timeline-intro h2 { font-size: clamp(32px, 4vw, 52px); }
+    .timeline-intro p { color: var(--muted); max-width: 360px; margin: 0; font-size: 14px; }
+    .timeline { position: relative; }
+    .timeline::before { content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 1px; background: var(--line); transform: translateX(-50%); }
+    .year-block { position: relative; padding-bottom: 64px; }
+    .year-label { position: relative; z-index: 2; width: max-content; margin: 0 auto 34px; background: var(--paper); padding: 0 18px; color: var(--ink); font-family: "Libre Bodoni", Georgia, serif; font-size: 30px; font-weight: 600; }
+    .year-label::before { content: ""; position: absolute; width: 10px; height: 10px; border: 2px solid var(--red); background: var(--paper); border-radius: 50%; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+    .year-label span { position: relative; z-index: 1; background: var(--paper); padding: 0 14px; }
+    .event { width: calc(50% - 42px); margin-bottom: 30px; position: relative; }
+    .event:nth-child(odd) { margin-left: auto; }
+    .event:nth-child(even) { margin-right: auto; }
+    .event::before { content: ""; position: absolute; top: 28px; width: 11px; height: 11px; background: var(--paper); border: 2px solid var(--red); border-radius: 50%; }
+    .event:nth-child(odd)::before { left: -49px; }
+    .event:nth-child(even)::before { right: -49px; }
+    .event-card { background: var(--card); border: 1px solid #e0ddd6; padding: 24px 25px 23px; box-shadow: 0 3px 0 rgba(17,35,58,.03); transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+    .event-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); border-color: #c6c4be; }
+    .event-meta { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 13px; }
+    .date { color: var(--red-dark); font-size: 13px; font-weight: 700; letter-spacing: .025em; }
+    .tag { color: var(--blue); border: 1px solid #bbd0dc; border-radius: 999px; padding: 2px 8px; font-size: 11px; line-height: 1.35; white-space: nowrap; }
+    .event h3 { font-family: "Noto Sans SC", system-ui, sans-serif; font-size: 20px; letter-spacing: -.02em; margin-bottom: 9px; }
+    .event p { color: var(--ink-2); margin: 0; font-size: 15px; }
+    .event-source { display: inline-flex; align-items: center; gap: 5px; margin-top: 14px; color: var(--muted); font-size: 12px; text-decoration: none; border-bottom: 1px solid transparent; }
+    .event-source:hover { color: var(--blue); border-bottom-color: var(--blue); }
+    .event-source svg { width: 13px; height: 13px; }
+    .closing { border-top: 1px solid var(--ink); margin-top: 18px; padding-top: 52px; display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; }
+    .closing h2 { font-size: clamp(30px, 4vw, 48px); }
+    .closing p { color: var(--ink-2); margin: 16px 0 0; }
+    .notes { border-left: 3px solid var(--red); padding-left: 20px; }
+    .notes h3 { font-family: "Noto Sans SC", system-ui, sans-serif; font-size: 16px; letter-spacing: 0; margin-bottom: 11px; }
+    .notes p { margin: 0 0 14px; font-size: 14px; }
+    footer { background: var(--ink); color: #c6d2dc; padding: 30px 5vw 36px; font-size: 13px; }
+    .footer-inner { max-width: 1240px; margin: 0 auto; display: flex; justify-content: space-between; gap: 30px; }
+    footer a { color: #fff; text-underline-offset: 3px; }
+    .hidden { display: none; }
+    @media (max-width: 760px) {
+      .site-header { padding: 16px 20px; }
+      .header-note { display: none; }
+      .hero { padding: 58px 20px 45px; display: block; }
+      h1 { font-size: clamp(42px, 14vw, 68px); }
+      .hero-lede { font-size: 16px; margin-top: 18px; }
+      .hero-meta { margin-top: 36px; max-width: 360px; }
+      .control-inner { padding: 11px 20px; align-items: flex-start; flex-direction: column; gap: 10px; }
+      .filters { justify-content: flex-start; }
+      main { padding: 46px 20px 70px; }
+      .timeline-intro { display: block; margin-bottom: 32px; }
+      .timeline-intro p { margin-top: 13px; }
+      .timeline::before { left: 7px; transform: none; }
+      .year-label { margin: 0 0 24px; padding-left: 28px; font-size: 27px; }
+      .year-label::before { left: 7px; }
+      .year-label span { padding: 0 10px 0 0; }
+      .event, .event:nth-child(odd), .event:nth-child(even) { width: calc(100% - 31px); margin-left: 31px; margin-right: 0; }
+      .event::before, .event:nth-child(odd)::before, .event:nth-child(even)::before { left: -31px; right: auto; top: 27px; }
+      .event-card { padding: 20px 18px; }
+      .event h3 { font-size: 18px; }
+      .closing { display: block; }
+      .notes { margin-top: 34px; }
+      .footer-inner { display: block; }
+      .footer-inner p { margin-top: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#timeline">跳到时间线</a>
+  <header class="site-header">
+    <a href="#top" class="masthead" aria-label="回到页面顶部"><span class="mark">史</span><span>公共卫生事件档案 · 01</span></a>
+    <div class="header-note">中国 / 世界 · 2019—2023</div>
+  </header>
+
+  <section class="hero" id="top" aria-labelledby="page-title">
+    <div>
+      <p class="eyebrow">A chronological record</p>
+      <h1 id="page-title">疫情事件<br /><em>回顾</em></h1>
+      <p class="hero-lede">从武汉的第一批异常病例，到全球公共卫生紧急状态结束——用一条时间线，重新阅读 2019 年底至 2023 年间改变世界的关键节点。</p>
+    </div>
+    <div class="hero-meta" aria-label="档案概览">
+      <div class="metric"><strong>2019—23</strong><span>记录跨度</span></div>
+      <div class="metric"><strong>86</strong><span>关键节点</span></div>
+      <div class="metric"><strong>中 / 外</strong><span>双重视角</span></div>
+      <div class="metric"><strong>01</strong><span>时间线档案</span></div>
+    </div>
+  </section>
+
+  <div class="control-bar" role="region" aria-label="时间线筛选">
+    <div class="control-inner">
+      <span class="control-label">查看事件</span>
+      <div class="filters" role="group" aria-label="按范围筛选">
+        <button class="filter" type="button" data-filter="all" aria-pressed="true">全部</button>
+        <button class="filter" type="button" data-filter="china" aria-pressed="false">中国</button>
+        <button class="filter" type="button" data-filter="world" aria-pressed="false">全球</button>
+        <button class="filter" type="button" data-filter="science" aria-pressed="false">科学与医疗</button>
+        <button class="filter" type="button" data-filter="policy" aria-pressed="false">政策与社会</button>
+      </div>
+    </div>
+  </div>
+
+  <main id="timeline">
+    <div class="timeline-intro">
+      <div><p class="eyebrow">The timeline</p><h2>一条时间线，<br />两种尺度。</h2></div>
+      <p>这是扩展版档案：把早期预警、医疗救治、政策调整、科研进展、社会影响与全球传播并置。日期按事件发生日排列；涉及争议的节点会在正文中标明口径。</p>
+    </div>
+
+    <div class="timeline">
+      <section class="year-block" aria-labelledby="year-2019">
+        <div class="year-label" id="year-2019"><span>2019</span></div>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2019年12月8日</span><span class="tag">中国 · 回顾节点</span></div><h3>2019年12月8日：武汉出现首例不明肺炎病例</h3><p>按本档案的编排口径，作为武汉不明原因肺炎出现的早期回顾节点。需要注意，病例起始时间在不同回顾性研究与公开口径中存在差异。</p><a class="event-source" href="https://www.who.int/news/item/27-04-2020-who-timeline---covid-19" target="_blank" rel="noreferrer">WHO 时间线（公开节点对照）<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2019年12月26日</span><span class="tag">中国 · 医疗</span></div><h3>2019年12月26日：医护人员发现异常病例并上报</h3><p>湖北省中西医结合医院张继先医生接诊了4例“奇怪的肺炎”患者；12月27日，医院将可疑病例上报并启动疾控调查。</p><a class="event-source" href="https://www.wuhan.gov.cn/ztzl/22zt/yxcsbns/202210/t20221008_2053262.shtml" target="_blank" rel="noreferrer">武汉市政府回顾资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2019年12月27日</span><span class="tag">中国 · 检测</span></div><h3>2019年12月27日：异常肺炎病例送检</h3><p>武汉多家医疗机构将异常肺炎病例送检，部分检测结果提示存在与 SARS 类似的冠状病毒信号。早期检测仍处于排查与复核阶段，不能直接等同于病原体确认。</p><a class="event-source" href="https://www.wuhan.gov.cn/ztzl/22zt/yxcsbns/202210/t20221008_2053262.shtml" target="_blank" rel="noreferrer">武汉市政府回顾资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2019年12月30日</span><span class="tag">中国 · 预警</span></div><h3>2019年12月30日：不明原因肺炎救治通知下发</h3><p>武汉市卫健委下发《关于做好不明原因肺炎救治工作的紧急通知》。同日，相关信息在医疗系统与民间传播，疫情预警开始进入公众视野。</p><a class="event-source" href="https://www.who.int/docs/default-source/coronaviruse/who_sprp-eoyr_2020_24022021.pdf" target="_blank" rel="noreferrer">WHO 年度流行病学回顾<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2019年12月31日</span><span class="tag">中国 / 全球</span></div><h3>2019年12月31日：武汉卫健委通报不明原因肺炎病例</h3><p>武汉市卫健委公开通报不明原因病毒性肺炎病例信息；WHO 中国办事处随后获悉这一病例聚集信号。</p><a class="event-source" href="https://www.who.int/docs/default-source/coronaviruse/who_sprp-eoyr_2020_24022021.pdf" target="_blank" rel="noreferrer">WHO 年度流行病学回顾<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+      </section>
+
+      <section class="year-block" aria-labelledby="year-2020">
+        <div class="year-label" id="year-2020"><span>2020</span></div>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月1日</span><span class="tag">中国 · 舆情</span></div><h3>2020年1月1日：武汉警方通报“8名散布谣言者”</h3><p>武汉警方通报对8名在网上发布、转发相关信息的人员进行查处。该节点后来与早期信息披露、医疗预警和言论空间的讨论相互连接。</p><a class="event-source" href="https://www.wuhan.gov.cn/ztzl/22zt/yxcsbns/202210/t20221008_2053262.shtml" target="_blank" rel="noreferrer">武汉市政府回顾资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月3日</span><span class="tag">中国 · 医疗</span></div><h3>2020年1月3日：李文亮等医生被公安机关训诫</h3><p>包括李文亮在内的医生因在微信群发布相关信息被训诫。2020年3月，武汉警方撤销对李文亮的训诫书并向其家属致歉。</p><a class="event-source" href="https://www.wuhan.gov.cn/ztzl/22zt/yxcsbns/202210/t20221008_2053262.shtml" target="_blank" rel="noreferrer">武汉市政府回顾资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月7日</span><span class="tag">科学与医疗</span></div><h3>2020年1月7日：确认新型冠状病毒</h3><p>中国卫生部门确认导致这次疫情的是一种新型冠状病毒；对病原体的识别为检测、追踪和研发争取了关键时间。</p><a class="event-source" href="https://www.cdc.gov/museum/timeline/covid19.html" target="_blank" rel="noreferrer">CDC Museum timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月11日</span><span class="tag">全球 · 科学</span></div><h3>2020年1月11日：中国向全球共享病毒基因序列</h3><p>病毒基因组序列公开后，全球科研团队得以开发 PCR 检测、进行病毒进化追踪，并推进疫苗与药物研究。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月18日</span><span class="tag">中国 · 城市</span></div><h3>2020年1月18日：万家宴与钟南山抵达武汉</h3><p>武汉百步亭社区举办大型聚餐活动；钟南山院士于当晚抵达武汉。这个日期后来成为回望疫情早期风险沟通与城市治理的典型节点。</p><a class="event-source" href="https://www.wuhan.gov.cn/ztzl/22zt/yxcsbns/202210/t20221008_2053262.shtml" target="_blank" rel="noreferrer">武汉市政府回顾资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月20日</span><span class="tag">中国 · 转折</span></div><h3>2020年1月20日：确认“肯定的人传人”</h3><p>专家组确认病毒存在人传人，并指出已有医务人员感染；中国将其纳入乙类传染病、采取甲类传染病的预防控制措施。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-01/20/content_5471057.htm" target="_blank" rel="noreferrer">中国政府网公开报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月13日</span><span class="tag">全球 · 传播</span></div><h3>2020年1月13日：泰国报告中国境外首例确诊病例</h3><p>泰国确认一例来自武汉的输入性病例，成为中国境外最早被记录的实验室确诊病例之一，疫情的跨境传播由此被明确看见。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月23日</span><span class="tag">中国 · 政策</span></div><h3>2020年1月23日：武汉实施“封城”</h3><p>武汉暂停离汉通道，公共交通与城市运行进入紧急状态。随后，中国多地启动不同级别的防控响应。</p><a class="event-source" href="https://www.cdc.gov/museum/timeline/covid19.html" target="_blank" rel="noreferrer">CDC Museum timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月24日</span><span class="tag">中国 · 医疗</span></div><h3>2020年1月24日：多地启动一级响应，医疗队驰援湖北</h3><p>多个省份启动重大突发公共卫生事件一级响应，医疗队、物资与防护用品开始集中支援湖北。后来官方公布，援鄂医疗力量达到数百支队伍。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-02/19/content_5480944.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月25日</span><span class="tag">中国 · 组织</span></div><h3>2020年1月25日：中央成立应对疫情工作领导小组</h3><p>中央层面的应对疫情工作领导机制进一步建立，统筹疫情防控、医疗救治、物资保障与复工复产等工作。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-01/25/content_5472100.htm" target="_blank" rel="noreferrer">中国政府网公开报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月29日</span><span class="tag">中国 · 教育</span></div><h3>2020年1月29日：教育系统部署“停课不停学”</h3><p>学校延期开学，在线教学、远程办公和线上服务逐步成为常态；教育数字化在应急状态下被大规模推向公众。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-02/04/content_5474780.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年1月30日</span><span class="tag">全球 · 公卫</span></div><h3>2020年1月30日：WHO 宣布国际关注的突发公共卫生事件</h3><p>WHO 将疫情列为国际关注的突发公共卫生事件（PHEIC），并向各国提出监测、检测与防护建议。</p><a class="event-source" href="https://www.who.int/news/item/27-04-2020-who-timeline---covid-19" target="_blank" rel="noreferrer">WHO COVID-19 timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月1日</span><span class="tag">中国 · 物资</span></div><h3>2020年2月1日：医疗物资分配争议进入公共视野</h3><p>湖北红十字会物资接收与分配问题引发广泛质疑，医院防护物资紧张与仓储、调拨效率成为舆论焦点；随后专业物流力量介入保障。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-02/04/content_5474780.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月2日</span><span class="tag">中国 · 医疗</span></div><h3>2020年2月2日：火神山医院交付使用</h3><p>火神山医院建成并交付，用于集中收治新冠肺炎患者；“中国速度”与临时医疗设施建设成为全球关注的公共卫生景观。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-02/04/content_5474780.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月5日</span><span class="tag">中国 · 医疗</span></div><h3>2020年2月5日：雷神山医院交付，方舱模式扩展</h3><p>雷神山医院交付，随后于2月8日收治患者；武汉方舱医院陆续启用，轻症患者集中管理成为缓解医疗挤兑的重要手段。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-02/04/content_5474780.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月7日</span><span class="tag">中国 · 记忆</span></div><h3>2020年2月7日：李文亮医生去世，早期预警成为公共记忆</h3><p>李文亮医生因新冠肺炎去世。这个节点将医生预警、信息公开、医务人员感染和公共哀悼集中到同一场社会记忆中；其训诫处理后来被撤销。</p><a class="event-source" href="https://www.wuhan.gov.cn/ztzl/22zt/yxcsbns/202210/t20221008_2053262.shtml" target="_blank" rel="noreferrer">武汉市政府回顾资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月7日</span><span class="tag">中国 · 数字治理</span></div><h3>2020年2月7日：健康码雏形上线</h3><p>杭州上线健康码雏形，深圳等地随后跟进，健康码、行程卡与核酸检测逐步组合成全国性的数字化防疫基础设施。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-02/11/content_5477792.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月11日</span><span class="tag">科学与医疗</span></div><h3>2020年2月11日：疾病正式命名为 COVID-19</h3><p>WHO 宣布疾病名称为 COVID-19；同日，病毒学界公布病毒正式名称 SARS-CoV-2。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月13日</span><span class="tag">中国 · 统计</span></div><h3>2020年2月13日：湖北调整病例统计标准</h3><p>湖北把临床诊断病例纳入确诊统计，当日新增数字显著上升。这个节点提醒读者：疫情数据会受检测能力、病例定义和统计口径调整影响。</p><a class="event-source" href="https://www.who.int/docs/default-source/coronaviruse/who_sprp-eoyr_2020_24022021.pdf" target="_blank" rel="noreferrer">WHO 年度流行病学回顾<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月14日</span><span class="tag">中国 · 社区</span></div><h3>2020年2月14日：湖北实行更严格的社区封闭管理</h3><p>社区网格化管理、出入限制、集中配送等措施进一步收紧，基层工作人员与志愿者承担起筛查、转运、保供和照护等工作。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-02/19/content_5480944.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年2月23日</span><span class="tag">全球 · 欧洲</span></div><h3>2020年2月23日：意大利北部成为欧洲早期热点</h3><p>意大利政府发布紧急措施，限制多个城镇的人员流动；疫情中心从东亚快速转向欧洲，全球防疫进入新的阶段。</p><a class="event-source" href="https://www.cdc.gov/museum/timeline/covid19.html" target="_blank" rel="noreferrer">CDC Museum timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年3月10日</span><span class="tag">中国 · 医疗</span></div><h3>2020年3月10日：武汉14家方舱医院全部休舱</h3><p>随着新增病例和住院压力下降，武汉最后一批方舱医院休舱，方舱从应急收治设施转化为疫情早期集中管理的标志性经验。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-03/10/content_5489276.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年3月11日</span><span class="tag">全球 · 认定</span></div><h3>2020年3月11日：WHO 将 COVID-19 定性为大流行</h3><p>随着疫情在多个大洲扩散，WHO 表示 COVID-19 可以被定性为大流行（pandemic），全球进入共同应对阶段。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年3月18日</span><span class="tag">中国 · 武汉</span></div><h3>2020年3月18日：武汉新增确诊病例首次“清零”</h3><p>武汉报告新增确诊病例为零，成为疫情进入下降阶段的重要统计节点；“清零”不等于风险消失，后续仍需面对输入性病例与局部反弹。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年3月31日</span><span class="tag">中国 · 教育</span></div><h3>2020年3月31日：高考推迟至7月举行</h3><p>高考日期因疫情推迟一个月，成为教育系统、家庭安排和社会节奏被疫情重新编排的代表性事件。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-03/31/content_5497253.htm" target="_blank" rel="noreferrer">中国政府网公开报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年4月4日</span><span class="tag">中国 · 记忆</span></div><h3>2020年4月4日：全国哀悼抗疫牺牲烈士和逝世同胞</h3><p>全国举行哀悼活动，公共记忆由“防控行动”转向对逝者、医护人员和普通家庭的集体纪念。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-04/03/content_5498172.htm" target="_blank" rel="noreferrer">中国政府网公告<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年4月8日</span><span class="tag">中国 · 武汉</span></div><h3>2020年4月8日：武汉解封，76天封控结束</h3><p>武汉解除离汉通道管控，城市开始逐步恢复交通与生产生活；人员流动、核酸检测和入境隔离成为下一阶段的防疫重点。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-04/08/content_5499359.htm" target="_blank" rel="noreferrer">中国政府网公开报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年4月—5月</span><span class="tag">中国 · 输入</span></div><h3>2020年4月—5月：境外输入病例成为新的防控课题</h3><p>黑龙江绥芬河等地出现境外输入相关疫情，国内防控重点从本土传播逐步转向“外防输入、内防反弹”。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年5月14日</span><span class="tag">中国 · 反弹</span></div><h3>2020年5月14日：吉林舒兰出现聚集性疫情</h3><p>武汉解封后，吉林舒兰疫情成为全国首次较大规模的本土反弹之一，提示低病例状态下仍需要持续监测。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-05/18/content_5512580.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年6月11日</span><span class="tag">中国 · 北京</span></div><h3>2020年6月11日：北京新发地疫情暴发</h3><p>北京新发地市场相关疫情引发局部筛查、社区管控和核酸检测，常态化防控下的快速响应机制进一步成形。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-06/14/content_5519349.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年6月23日</span><span class="tag">科学与医疗</span></div><h3>2020年6月23日：国产新冠疫苗进入Ⅲ期临床试验</h3><p>中国疫苗研发进入国际多中心Ⅲ期临床试验阶段，疫苗研发从实验室和早期试验进入评估保护效果的关键阶段。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年8月24日</span><span class="tag">全球 · 科学</span></div><h3>2020年8月24日：首例有记录的再感染病例受到关注</h3><p>香港研究团队报告首例基因测序确认的再感染病例，提示感染后免疫、病毒变异与长期防护需要持续研究。</p><a class="event-source" href="https://www.cdc.gov/museum/timeline/covid19.html" target="_blank" rel="noreferrer">CDC Museum timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年12月2日</span><span class="tag">科学与医疗</span></div><h3>2020年12月2日：英国批准首款 COVID-19 疫苗</h3><p>英国批准 Pfizer-BioNTech 疫苗紧急使用，疫苗接种时代开启；随后更多国家陆续批准不同疫苗。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年12月30日</span><span class="tag">中国 · 疫苗</span></div><h3>2020年12月30日：国产新冠疫苗获批上市</h3><p>国产新冠疫苗获批附条件上市，疫苗从临床研发进入大规模接种准备阶段；中国随后宣布为全民免费接种。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-12/31/content_5575706.htm" target="_blank" rel="noreferrer">中国政府网公开报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2020年12月31日</span><span class="tag">中国 · 疫苗</span></div><h3>2020年12月31日：官宣新冠疫苗全民免费接种</h3><p>疫苗接种从重点人群优先逐步扩展，免费接种成为公共卫生政策的重要承诺，也为2021年大规模免疫铺路。</p><a class="event-source" href="https://www.gov.cn/xinwen/2020-12/31/content_5575706.htm" target="_blank" rel="noreferrer">中国政府网公开报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+      </section>
+
+      <section class="year-block" aria-labelledby="year-2021">
+        <div class="year-label" id="year-2021"><span>2021</span></div>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年1月1日</span><span class="tag">中国 · 疫苗</span></div><h3>2021年1月1日：重点人群率先开启疫苗接种</h3><p>医务人员、口岸和冷链从业者等重点人群优先接种，疫苗接种从研发新闻转化为普通人的公共卫生行动。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-01/09/content_5578206.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年1月2日</span><span class="tag">中国 · 农村</span></div><h3>2021年1月2日：河北石家庄、邢台出现聚集性疫情</h3><p>河北农村聚集性疫情引发全员筛查、社区管控与“就地过年”等安排，农村地区的医疗与检测能力成为防控重点。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-01/11/content_5578918.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年2月25日</span><span class="tag">中国 · 疫苗</span></div><h3>2021年2月25日：国产疫苗扩大附条件上市范围</h3><p>国药疫苗等获得附条件上市或紧急使用安排，科兴疫苗此前已获批；全国接种能力开始进入扩容阶段。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-02/26/content_5589138.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年3月起</span><span class="tag">中国 · 疫苗</span></div><h3>2021年3月起：全国大规模免费接种展开</h3><p>疫苗接种从重点人群逐步扩展到更广泛人群，接种点、冷链、预约和不良反应监测体系同步铺开。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-03/25/content_5595723.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年4月—5月</span><span class="tag">全球 · 变异株</span></div><h3>2021年：Delta 变异株推动全球新一轮高峰</h3><p>更具传播性的 Delta 变异株在多地成为主导，印度等国家经历严重医疗挤兑，疫苗供给与公平再次成为全球议题。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年5月</span><span class="tag">中国 · Delta</span></div><h3>2021年5月：广州出现本土 Delta 传播</h3><p>广州本土疫情成为 Delta 变异株在中国引发局部传播的重要节点，流调、分区管理和快速核酸检测再次成为核心工具。</p><a class="event-source" href="https://www.who.int/activities/tracking-SARS-CoV-2-variants" target="_blank" rel="noreferrer">WHO 变异株追踪资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年8月23日</span><span class="tag">全球 · 疫苗</span></div><h3>2021年8月23日：美国 FDA 完全批准 Pfizer-BioNTech 疫苗</h3><p>疫苗监管从紧急使用授权进入正式批准阶段，全球开始同时面对接种覆盖率、加强针与疫苗公平问题。</p><a class="event-source" href="https://www.cdc.gov/museum/timeline/covid19.html" target="_blank" rel="noreferrer">CDC Museum timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年7月20日</span><span class="tag">中国 · Delta</span></div><h3>2021年7月20日：南京机场疫情扩散至多省</h3><p>南京机场相关疫情引发跨省传播，随后多地采取全员核酸、区域管控和重点场所暂停等措施，疫情在约一个月内得到控制。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-08/05/content_5629430.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年7月26日—8月</span><span class="tag">中国 · 传播</span></div><h3>2021年7月26日—8月：张家界演出成为跨省传播链节点</h3><p>多名感染者曾观看张家界演出，相关场次观众被纳入风险排查，跨区域旅行和大型活动的传播风险再次受到关注。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-08/03/content_5629387.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年8月3日</span><span class="tag">中国 · 检测</span></div><h3>2021年8月3日：武汉启动全市全员核酸检测</h3><p>全市范围的大规模筛查成为防控模式的重要转折点，之后在多轮局部疫情中被不同城市反复采用。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-08/03/content_5629387.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年9月</span><span class="tag">中国 · 学校</span></div><h3>2021年9月：福建莆田疫情引发校园传播关注</h3><p>学校和未成年人群体出现聚集性传播，防疫安排在校园管理、家校协作和线上线下教学之间反复切换。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-09/14/content_5637215.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年10月—11月</span><span class="tag">中国 · 疫苗</span></div><h3>2021年10月：加强针接种启动并逐步推广</h3><p>随着 Delta 传播与免疫保护讨论升温，中国启动重点人群加强免疫，接种策略进入“基础免疫 + 加强针”阶段。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-10/23/content_5644511.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年11月26日</span><span class="tag">全球 · 变异株</span></div><h3>2021年11月26日：WHO 将 Omicron 列为“关切变异株”</h3><p>Omicron 被列为 Variant of Concern（VOC），随后迅速在全球传播，并在 2022 年初形成巨大感染波峰。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年12月</span><span class="tag">中国 · 防控</span></div><h3>2021年12月：多地进入常态化防控与局部应急并行</h3><p>面对 Delta 传播，中国以局部精准防控、核酸检测和健康码等方式维持“动态清零”政策框架。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-12/11/content_5659796.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2021年12月9日</span><span class="tag">中国 · 西安</span></div><h3>2021年12月9日：西安本土疫情扩散</h3><p>西安本土疫情随后升级为城市级防控，高校封闭管理、线上授课和大规模筛查成为当时城市生活的主要特征。</p><a class="event-source" href="https://www.gov.cn/xinwen/2021-12/23/content_5664115.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+      </section>
+
+      <section class="year-block" aria-labelledby="year-2022">
+        <div class="year-label" id="year-2022"><span>2022</span></div>
+        <article class="event" data-tags="china world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年1月2日—8日</span><span class="tag">中国 · Omicron</span></div><h3>2022年1月：河南禹州、天津、安阳出现本土 Omicron 传播</h3><p>Omicron 在全球快速扩散，中国开始正式面对其更强传播性。河南、天津、安阳等地的局部疫情成为年初防控重点。</p><a class="event-source" href="https://www.who.int/activities/tracking-SARS-CoV-2-variants" target="_blank" rel="noreferrer">WHO 变异株追踪资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年1月1日—24日</span><span class="tag">中国 · 西安</span></div><h3>2022年1月：西安封控进入第二阶段</h3><p>西安封控期间，物资保障、就医通道和基层服务承受压力；相关事件推动地方开通就医绿色通道、补强社区保供与应急协调。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-01/24/content_5670140.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年1月—2月</span><span class="tag">全球 · Omicron</span></div><h3>2022年：Omicron 让感染规模刷新纪录</h3><p>Omicron 及其亚型在全球形成大规模传播。很多地区从“阻断传播”转向降低重症、保护脆弱人群与维持医疗系统。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年3月2日</span><span class="tag">全球 · 社会</span></div><h3>2022年3月2日：WHO 报告全球焦虑与抑郁上升</h3><p>WHO 评估认为，疫情造成全球焦虑和抑郁水平明显上升，年轻人、女性和照护者承受的心理健康风险尤为突出。</p><a class="event-source" href="https://www.who.int/news/item/29-06-2020-COVIDtimeline" target="_blank" rel="noreferrer">WHO response timeline<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年3月11日</span><span class="tag">中国 · 长春</span></div><h3>2022年3月11日：长春实施全域封控</h3><p>长春成为 Omicron 时代最早进入大规模城市封控的典型城市之一，社区保供、企业停工和就医需求同时受到考验。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-03/12/content_5678627.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年3月12日</span><span class="tag">中国 · 教育</span></div><h3>2022年3月12日：上海中小学全面转为线上教学</h3><p>学校再次从线下切换到线上，教育系统的“反复切换”成为 Omicron 传播期城市生活的重要切面。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-03/12/content_5678627.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年3月—5月</span><span class="tag">中国 · 城市</span></div><h3>2022年：上海等地经历 Omicron 传播与城市管控</h3><p>Omicron 传播引发上海等地大规模筛查与分区管控，疫情治理、医疗资源和城市供应链成为公共讨论焦点。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-05/05/content_5688822.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年3月28日</span><span class="tag">中国 · 上海</span></div><h3>2022年3月28日：上海分区封控，随后进入全域静态管理</h3><p>分区分批筛查与封控逐步扩大，物资配送、就医和城市运行承压；全国多地物资与医疗力量随后支援上海。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-05/05/content_5688822.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年4月2日—17日</span><span class="tag">中国 · 社会</span></div><h3>2022年4月：上海保供、就医与公共表达成为焦点</h3><p>“抢菜潮”、跨城离沪、就医困难和网络公共表达等事件进入社会讨论；这些公开报道与作品构成了对城市封控经验的多重记录。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-05/05/content_5688822.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年6月1日</span><span class="tag">中国 · 上海</span></div><h3>2022年6月1日：上海全面解封</h3><p>上海结束持续约75天的全域封控，交通、商业和线下生活逐步恢复；疫情治理与民生保障的经验和代价持续被讨论。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-06/01/content_5693758.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年6月9日</span><span class="tag">中国 · 北京</span></div><h3>2022年6月9日：北京酒吧聚集性疫情引发新一轮管控</h3><p>天堂超市酒吧相关疫情造成传播链扩散，北京再次加强重点区域筛查与场所管理，城市恢复节奏被重新调整。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-06/13/content_5695483.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年6月13日</span><span class="tag">中国 · 数字治理</span></div><h3>2022年6月13日：郑州储户“红码”事件曝光</h3><p>多名前往郑州沟通取款问题的储户被赋红码，引发全国关注；6月22日官方通报称相关做法违规，多名责任人员被问责。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-06/22/content_5696964.htm" target="_blank" rel="noreferrer">中国政府网公开通报<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年8月1日</span><span class="tag">中国 · 旅游</span></div><h3>2022年8月1日：海南三亚“0801”疫情</h3><p>暑期旅游旺季的本土疫情造成大量游客滞留，地方随后建立离岛协调与游客服务机制，疫情管理与旅游业恢复之间的张力受到关注。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-08/09/content_5704906.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年8月7日</span><span class="tag">中国 · 西藏</span></div><h3>2022年8月7日：西藏出现本土疫情</h3><p>西藏此前长时间没有本土病例，阿里、拉萨、日喀则等地相继进入防控状态，偏远地区的医疗与物资保障成为重点。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-08/10/content_5704876.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年9月18日</span><span class="tag">中国 · 安全</span></div><h3>2022年9月18日：贵州隔离转运大巴事故引发安全反思</h3><p>隔离转运车辆事故造成重大人员伤亡，随后开展专项排查，转运流程、夜间行车与安全责任成为公共治理讨论的一部分。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-09/19/content_5710646.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年10月30日</span><span class="tag">中国 · 劳动</span></div><h3>2022年10月30日：郑州富士康员工返乡事件</h3><p>员工徒步返乡的公开影像引发对疫情防控、工厂管理、劳动力流动与民生保障平衡的讨论，地方随后补充返乡与企业防控安排。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-11/02/content_5723270.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年11月11日</span><span class="tag">中国 · 政策</span></div><h3>2022年11月11日：防疫“二十条”发布</h3><p>入境管控、密接管理与风险区域划定等措施优化，政策开始强调科学精准、避免层层加码和减少不必要的封控。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-11/11/content_5725790.htm" target="_blank" rel="noreferrer">中国政府网原文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年11月24日</span><span class="tag">中国 · 社会</span></div><h3>2022年11月24日：乌鲁木齐火灾事故引发公共讨论</h3><p>火灾事故及其与封控管理的关联争议引发全国关注；随后，消防通道、封控措施与居民安全之间的关系成为政策反思焦点。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-11/25/content_5728480.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年11月26日—27日</span><span class="tag">中国 · 社会</span></div><h3>2022年11月26日—27日：多地出现反对长期封控的公众诉求</h3><p>多地出现悼念、集会与反对长期封控的公众表达。事件推动“不得随意扩大封控范围”等政策要求进一步进入公共讨论。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-11/29/content_5729234.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年11月30日</span><span class="tag">中国 · 广州</span></div><h3>2022年11月30日：广州大范围解除临时管控</h3><p>广州逐步解除部分临时管控、取消部分公共场所核酸查验，成为“二十条”之后地方优化防控的代表性节点。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-11/30/content_5729503.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年12月1日</span><span class="tag">中国 · 转段</span></div><h3>2022年12月1日：多处高速路口撤销核酸与健康码查验</h3><p>部分地区先行调整跨区域通行查验，公共空间的健康码与核酸规则开始出现明显变化。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-12/02/content_5730040.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年12月7日</span><span class="tag">中国 · 政策</span></div><h3>2022年12月7日：中国发布“新十条”</h3><p>跨区域流动不再强制查验核酸和健康码，风险区域划定、隔离管理与社会运行安排大幅优化，防控政策进入转段期。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-12/07/content_5730443.htm" target="_blank" rel="noreferrer">中国政府网原文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年12月8日—2023年1月</span><span class="tag">中国 · 感染高峰</span></div><h3>2022年12月—2023年1月：全国经历第一波感染高峰</h3><p>大规模感染带来发热门诊、急诊和药品供应压力，学校、企业与家庭在短时间内完成从“防感染”到“保健康、防重症”的调整。</p><a class="event-source" href="https://www.gov.cn/xinwen/2023-01/15/content_5737053.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年12月13日</span><span class="tag">中国 · 数字治理</span></div><h3>2022年12月13日：通信行程卡正式下线</h3><p>通信行程卡停止服务，持续近三年的数字化出行查验体系告一段落。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-12/13/content_5731807.htm" target="_blank" rel="noreferrer">中国政府网公告<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2022年12月26日</span><span class="tag">中国 · 政策</span></div><h3>2022年12月26日：中国调整传染病管理措施</h3><p>中国宣布自 2023 年1月8日起对新型冠状病毒感染实施“乙类乙管”，并优化入境人员管理。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-12/26/content_5733506.htm" target="_blank" rel="noreferrer">中国政府网原文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+      </section>
+
+      <section class="year-block" aria-labelledby="year-2023">
+        <div class="year-label" id="year-2023"><span>2023</span></div>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2023年1月8日</span><span class="tag">中国 · 转段</span></div><h3>2023年1月8日：中国对新冠感染实施“乙类乙管”</h3><p>中国进入疫情防控的新阶段，国际客运航班逐步恢复，公共卫生策略从应急处置转向常态化管理。</p><a class="event-source" href="https://www.gov.cn/xinwen/2022-12/26/content_5733506.htm" target="_blank" rel="noreferrer">中国政府网原文<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2023年2月中旬</span><span class="tag">中国 · 教育</span></div><h3>2023年2月：大中小学全面回归线下教学</h3><p>随着第一波感染高峰回落，学校陆续恢复正常线下教学，持续多年的线上与线下切换逐步结束。</p><a class="event-source" href="https://www.gov.cn/xinwen/2023-02/23/content_5742789.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2023年4月29日</span><span class="tag">中国 · 入境</span></div><h3>2023年4月29日：入境可用抗原检测替代核酸</h3><p>入境健康管理进一步优化，抗原检测可以替代登机前核酸检测，跨境流动继续恢复。</p><a class="event-source" href="https://www.gov.cn/xinwen/2023-04/25/content_5753223.htm" target="_blank" rel="noreferrer">中国政府网相关资料<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2023年5月5日</span><span class="tag">全球 · 转段</span></div><h3>2023年5月5日：WHO 结束 COVID-19 国际关注的突发公共卫生事件状态</h3><p>WHO 宣布 COVID-19 不再构成 PHEIC，全球从紧急响应转入长期、综合的呼吸道疾病管理阶段。</p><a class="event-source" href="https://www.who.int/news-room/spotlight/global-health-achievements-2023" target="_blank" rel="noreferrer">WHO Global health achievements 2023<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="china world policy">
+          <div class="event-card"><div class="event-meta"><span class="date">2023年8月30日</span><span class="tag">中国 · 入境</span></div><h3>2023年8月30日：取消入境前置新冠检测要求</h3><p>入境前新冠检测要求取消，疫情防控进入常态化公共卫生管理阶段，跨境出行逐步回到常态。</p><a class="event-source" href="https://www.gov.cn/xinwen/2023-08/28/content_6900139.htm" target="_blank" rel="noreferrer">中国政府网相关报道<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+        <article class="event" data-tags="world science">
+          <div class="event-card"><div class="event-meta"><span class="date">2023年12月31日</span><span class="tag">全球 · 回望</span></div><h3>2023年：从“紧急状态”转向长期准备</h3><p>疫情不再以同一种紧迫性占据公共生活，但监测、疫苗、医疗系统韧性与下一次大流行准备，成为新的长期课题。</p><a class="event-source" href="https://www.who.int/docs/librariesprovider2/default-document-library/09062023_who_covid_19_summary_v2.pdf" target="_blank" rel="noreferrer">WHO transition summary<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
+        </article>
+      </section>
+    </div>
+
+    <section class="closing" aria-labelledby="notes-title">
+      <div><p class="eyebrow">How to read this archive</p><h2 id="notes-title">记住日期，<br />也记住不确定性。</h2><p>这是一份扩展版公共档案，不是穷尽一切细节的学术年表。它把中国的地方性应对放在全球传播、科学命名、医疗救治、数字治理、教育与政策转段的同一条轴上，方便比较不同阶段的选择与代价。</p></div>
+      <div class="notes"><h3>口径说明</h3><p>“2019年12月8日”按委托方指定的标准格式保留为回顾节点；公开官方时间线通常把 2019年12月31日视为武汉向外界通报病例聚集的关键日期。个别早期日期与病例数量存在回顾性差异。</p><h3>来源原则</h3><p>优先使用 WHO、CDC、中国政府网与武汉市政府公开资料；社会事件采用“公开报道 / 争议进入公共讨论”的谨慎表述。页面文字为编辑性概括，非医学建议。</p></div>
+    </section>
+  </main>
+
+  <footer><div class="footer-inner"><div>疫情事件回顾｜2019—2023</div><p>资料整理：公开来源 · 最后整理：2026年9月<br /><a href="#top">回到页面顶部 ↑</a></p></div></footer>
+  <script>
+    const filters = document.querySelectorAll('.filter');
+    const events = document.querySelectorAll('.event');
+    filters.forEach((button) => button.addEventListener('click', () => {
+      const value = button.dataset.filter;
+      filters.forEach((item) => item.setAttribute('aria-pressed', item === button ? 'true' : 'false'));
+      events.forEach((event) => {
+        const tags = event.dataset.tags.split(' ');
+        event.classList.toggle('hidden', value !== 'all' && !tags.includes(value));
+      });
+      document.querySelectorAll('.year-block').forEach((year) => {
+        const visible = year.querySelectorAll('.event:not(.hidden)').length;
+        year.classList.toggle('hidden', visible === 0);
+      });
+    }));
+  </script>
+</body>
+</html>
